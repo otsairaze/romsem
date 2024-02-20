@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  height: 3000px;
+  header {
+    max-height: 95px;
+    border-bottom: 1px solid #a4acad;
+    padding-bottom: 20px;
+    max-width: 1170px;
+    background-color: #f2f2f2;
+
+    margin: 0 auto;
+    .--f-border {
+      border-right: 1px solid #a4acad;
+      width: 222px;
+      padding-bottom: 35px;
+    }
+    .--f-text {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .--s-border {
+      display: flex;
+      width: 950px;
+    }
+  }
+}
