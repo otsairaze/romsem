@@ -1,32 +1,51 @@
-import { useState } from "react";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import Main from "./Pages/Main/Main";
+import React from "react";
+import MenuSushiSet from "./Pages/MenuSushiSet/MenuSushiSet";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Drawer from "./Components/Drawer/Drawer";
+import Drawermenu from "./Components/Drawer/Drawermenu";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [cartOpened, setCardOpened] = React.useState(false);
+  const [menuOpened, setMenuOpened] = React.useState(false);
 
+  const Layout = ({ children }) => (
+    <>
+      {menuOpened && <Drawermenu onCloseMenu={() => setMenuOpened(false)} />}
+      {cartOpened && <Drawer onClose={() => setCardOpened(false)} />}
+      <Header
+        onClickCart={() => setCardOpened(true)}
+        onClickMenu={() => setMenuOpened(true)}
+      />
+      {children}
+      п
+      <Footer />
+    </>
+  );
   return (
     <>
-      <div className="container">
-        <header className="d-flex">
-          <div className="--f-border">
-            <p className="--f-text">Наш телефон</p>
-            <p>+996 705 188 955</p>
-            <p>+996 555 188 955</p>
-            <p>работаем с 10:00 до 00:00</p>
-          </div>
-          <div className="--s-border">
-            <div className="d-flex">
-              <div>
-                <p>Город:</p>
-                <p>Бишкек</p>
-              </div>
-              <div>
-                <p>Отзывы</p>
-                <p>Доставка и оплата</p>
-              </div>
-            </div>
-          </div>
-        </header>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/set"
+            element={
+              <Layout>
+                <MenuSushiSet />
+              </Layout>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Main />
+              </Layout>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
