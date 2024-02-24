@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const CardCart = ({ title, info, price, imageUrl, id }) => {
+const CardCart = ({ title, info, price, imageUrl, id, RemoveCartItem }) => {
   const [items, setItems] = React.useState([]);
   function AddCartItem() {
     const obj = {
@@ -11,7 +11,7 @@ const CardCart = ({ title, info, price, imageUrl, id }) => {
       price: price,
       imageUrl: imageUrl,
     };
-    axios.post("https://65c3afef39055e7482c16929.mockapi.io/food", obj);
+    axios.post("https://65c3afef39055e7482c16929.mockapi.io/cart", obj);
   }
 
   return (
@@ -19,11 +19,13 @@ const CardCart = ({ title, info, price, imageUrl, id }) => {
       <div className="cardcart-block">
         <div className="--c-c-">
           <img src={imageUrl} alt="" />
-          <h3>{title}</h3>
-          <p className="--c-t">{info}</p>
+          <div>
+            <h3>{title}</h3>
+          </div>
+
           <div className="d-flex align-center">
             <p>{price}</p>
-            <button onClick={AddCartItem}>Хочу</button>
+            <button onClick={() => RemoveCartItem(id)}>Удалить</button>
           </div>
         </div>
       </div>

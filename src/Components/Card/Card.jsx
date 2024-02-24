@@ -11,7 +11,7 @@ const Card = ({ title, info, price, imageUrl, id }) => {
       price: price,
       imageUrl: imageUrl,
     };
-    axios.post("https://65c3afef39055e7482c16929.mockapi.io/food", obj);
+    axios.post("https://65c3afef39055e7482c16929.mockapi.io/cart", obj);
   }
 
   return (

@@ -54,14 +54,17 @@
   .drawer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: fixed;
     width: 420px;
     right: 0;
-    height: 700px;
+    height: 100%;
     background: #ffffff;
     box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
     padding: 30px;
+    .h-b {
+      height: 1300px;
+    }
     p {
       text-align: center;
     }
@@ -181,8 +184,30 @@
   }
 
   .cardcart-block {
-    max-width: 500px;
-    max-height: 150px;
+    .--c-c- {
+      display: flex;
+      align-items: center;
+      max-width: 200px;
+      font-size: 15px;
+
+      div {
+        p {
+          margin-right: 15px;
+        }
+        text-align: left;
+        h3 {
+          margin-right: 15px;
+          margin-left: 10px;
+        }
+      }
+      button {
+        font-size: 15px;
+        padding: 10px 10px;
+      }
+      img {
+        width: 150px;
+      }
+    }
   }
 
   .info {
