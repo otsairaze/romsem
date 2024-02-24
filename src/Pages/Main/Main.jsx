@@ -60,14 +60,16 @@ const Main = () => {
             Новинки <span>Популярное</span>
           </p>
         </div>
-        {items.map((obj) => {
-          <Card
-            title={obj.title}
-            price={obj.price}
-            info={obj.info}
-            imageUrl={obj.imageUrl}
-          />;
-        })}
+        <div className="d-flex">
+          {items.map((obj) => (
+            <Card
+              title={obj.title}
+              price={obj.price}
+              info={obj.info}
+              imageUrl={obj.imageUrl}
+            />
+          ))}
+        </div>
 
         <div className="info">
           <h3>Заказать суши в Бишкеке</h3>

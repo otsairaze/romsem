@@ -1,4 +1,15 @@
+import axios from "axios";
+import React from "react";
+import Card from "../Card/Card";
+import CardCart from "../Card/CardCart";
+
 const Drawer = ({ onClose }) => {
+  const [items, setItems] = React.useState([]);
+  React.useEffect(() => {
+    axios
+      .get("https://65c3afef39055e7482c16929.mockapi.io/food")
+      .then((res) => setItems(res.data));
+  }, []);
   return (
     <div onClick={onClose} className="overlay">
       <div onClick={(e) => e.stopPropagation()} className="drawer">
@@ -13,7 +24,16 @@ const Drawer = ({ onClose }) => {
             alt=""
           />
         </div>
-
+        <div>
+          {items.map((item) => (
+            <CardCart
+              title={item.title}
+              price={item.price}
+              info={item.info}
+              imageUrl={item.imageUrl}
+            />
+          ))}
+        </div>
         <button className="cu-p">Оформить заказ</button>
       </div>
     </div>
