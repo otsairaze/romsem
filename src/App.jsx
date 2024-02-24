@@ -8,17 +8,9 @@ import Drawer from "./Components/Drawer/Drawer";
 import Drawermenu from "./Components/Drawer/Drawermenu";
 
 function App() {
-  const [cartOpened, setCardOpened] = React.useState(false);
-  const [menuOpened, setMenuOpened] = React.useState(false);
-
   const Layout = ({ children }) => (
     <>
-      {menuOpened && <Drawermenu onCloseMenu={() => setMenuOpened(false)} />}
-      {cartOpened && <Drawer onClose={() => setCardOpened(false)} />}
-      <Header
-        onClickCart={() => setCardOpened(true)}
-        onClickMenu={() => setMenuOpened(true)}
-      />
+      <Header />
       {children}
       п
       <Footer />
